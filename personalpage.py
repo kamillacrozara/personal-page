@@ -30,10 +30,22 @@ def teardown_request(exception):
         db.close()
 
 @app.route('/')
-def show_entries():
+def index():
     cur = g.db.execute('select author, date, title, text from entries order by id desc')
     entries = [dict(author=row[0], date=row[1], title=row[2], text=row[3]) for row in cur.fetchall()]
     return render_template('index.html', entries=entries)
+
+@app.route('/fill')
+def fill_enter():
+    return render_template('add_entries.html')
+
+@app.route('/resume')
+def resume():
+    return render_template('resume.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 
 @app.route('/add', methods=['POST'])
 def add_entry():
@@ -45,7 +57,7 @@ def add_entry():
                  [author, date, request.form['title'], request.form['text']])
     g.db.commit()
     flash('New entry was successfully posted')
-    return redirect(url_for('show_entries'))
+    return redirect(url_for('index'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -58,14 +70,14 @@ def login():
         else:
             session['logged_in'] = True
             flash('You were logged in')
-            return redirect(url_for('show_entries'))
+            return redirect(url_for('index'))
     return render_template('login.html', error=error)
 
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
     flash('You were logged out')
-    return redirect(url_for('show_entries'))
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run()
