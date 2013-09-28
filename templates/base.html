@@ -1,0 +1,66 @@
+{%block doc%}
+<!DOCTYPE html>
+{%block html%}
+<html lang="en">
+  <head>
+    {%block head%}
+    <title>Kamilla H. Crozara</title>
+
+    {%block metas%}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    {%endblock metas%}
+    
+    {%block styles%}
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="shortcut icon" type=text/css href="{{ url_for('static', filename='assets/ico/favicon.png') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/justified-nav.css') }}">  
+    
+    {%endblock styles%}
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+    {%endblock head%}
+  </head>
+
+  <body>
+    {%block body%}
+    <div class="container">
+      {%block navbar%}
+      <div class="masthead">
+        <ul class="nav nav-justified">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Notes</a></li>
+          <li><a href="#">Résumé</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      {%endblock navbar%}
+      
+      {%block content%}
+
+      {%endblock content%}
+
+      {%block footer%}
+      <!-- Site footer -->
+      <div class="footer">
+        <p>&copy; Kamilla H. Crozara - 2013</p>
+      </div>
+      {%endblock footer%}
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    {%endblock body%}
+  </body>
+</html>
+{%endblock html%}
+{%endblock doc%}
