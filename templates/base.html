@@ -15,8 +15,8 @@
     
     {%block styles%}
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.css') }}">
-    <link rel="shortcut icon" type=text/css href="{{ url_for('static', filename='assets/ico/favicon.png') }}">
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/justified-nav.css') }}">  
+    <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville' rel='stylesheet' type='text/css'>
     
     {%endblock styles%}
 
@@ -41,14 +41,34 @@
       </div>
       {%endblock navbar%}
       
-      {%block content%}
 
-      {%endblock content%}
+      <div class="row">
+          <div class="col-md-9">
+            {%block content%}
+            {%endblock content%}
+          </div>
+      
+          <div class="col-md-3">
+            <div class="bs-sidebar hidden-print affix" role="complementary">
+              <ul class="nav bs-sidenav">
+                <h1>Profile</h1>
+              </ul>
+            </div>
+          </div>
+      </div>
+      
 
       {%block footer%}
       <!-- Site footer -->
       <div class="footer">
-        <p>&copy; Kamilla H. Crozara - 2013</p>
+        <div class="row">
+          <div class="col-md-10">
+            <p>&copy; Kamilla H. Crozara - 2013</p>
+          </div>
+        <div class="col-md-2">
+            <img src="../static/img/python-powered-w-100x40.png" class="img-rounded">
+        </div>
+        </div>
       </div>
       {%endblock footer%}
 
