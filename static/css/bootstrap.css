@@ -304,7 +304,7 @@ body {
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
-  background-color: #F9F9F9;
+  background-color: #F7F5FA;
 }
 
 input,
@@ -369,6 +369,13 @@ img {
 
 .img-circle {
   border-radius: 50%;
+  vertical-align: middle;
+  width: 120px;
+  height: 200px;
+  max-width: 100%;
+  vertical-align: middle;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
 }
 
 hr {
@@ -500,7 +507,7 @@ h6 {
 
 h1,
 .h1 {
-  font-size: 36px;
+  font-size: 46px;
 }
 
 h2,
@@ -530,7 +537,7 @@ h6,
 
 h1 small,
 .h1 small {
-  font-size: 24px;
+  font-size: 14px;
 }
 
 h2 small,
@@ -773,6 +780,7 @@ pre code {
 }
 
 .row {
+  text-align: justify;
   margin-right: -15px;
   margin-left: -15px;
 }
@@ -845,6 +853,7 @@ pre code {
 .col-lg-10,
 .col-lg-11,
 .col-lg-12 {
+  margin-top: 30px;
   position: relative;
   min-height: 1px;
   padding-right: 15px;
@@ -4147,6 +4156,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar-static-top {
   border-width: 0 0 1px;
+  background-color: #CDBFE3;
 }
 
 @media (min-width: 768px) {
@@ -4161,6 +4171,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   right: 0;
   left: 0;
   border-width: 0 0 1px;
+  background-color: #E5E3E9;
 }
 
 @media (min-width: 768px) {
