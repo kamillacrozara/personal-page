@@ -37,12 +37,12 @@ def index():
 def fill_enter():
     return render_template('add_entries.html')
 
-@app.route('/blog')
-def blog():
+@app.route('/notes')
+def notes():
     cur = g.db.execute('select date, title, text from entries order by id desc')
     
     entries = [dict(date=row[0], title=row[1], text=row[2]) for row in cur.fetchall()]
-    return render_template('blog.html', entries=entries)
+    return render_template('notes.html', entries=entries)
 
 @app.route('/contact')
 def contact():
@@ -59,7 +59,7 @@ def add_entry():
                  [date, request.form['title'], request.form['text']])
     g.db.commit()
     
-    return redirect(url_for('blog'))
+    return redirect(url_for('notes'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -72,14 +72,14 @@ def login():
         else:
             session['logged_in'] = True
             flash('You were logged in')
-            return redirect(url_for('blog'))
+            return redirect(url_for('fill'))
     return render_template('login.html', error=error)
 
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
     flash('You were logged out')
-    return redirect(url_for('blog'))
+    return redirect(url_for('notes'))
 
 if __name__ == '__main__':
     app.run()

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+  {% for entry in entries %}
+<div class="well">
+  	<div class="row">
+    	<div class="col-md-12">
+		    <h3 clas="page-header">
+		    	{{ entry.title }}
+		    </h3>
+		    <small>{{ entry.date }}</small>
+		    <hr>
+		</div>
+	</div>
+
+	<div class="row">
+		 
+		<div class="col-md-12">
+	    	{{ entry.text|safe }}
+	    </div>
+    </div>
+
+    </div>
+
+  {% else %}
+    <em>Unbelievable.  No entries here so far</em>
+  {% endfor %}
+{%endblock%}
