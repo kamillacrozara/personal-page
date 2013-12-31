@@ -44,9 +44,9 @@ def notes():
     entries = [dict(date=row[0], title=row[1], text=row[2]) for row in cur.fetchall()]
     return render_template('notes.html', entries=entries)
 
-@app.route('/contact')
+@app.route('/edit_enter')
 def contact():
-    return render_template('contact.html')
+    return render_template('edit_post.html')
 
 @app.route('/add', methods=['POST'])
 def add_entry():
@@ -61,6 +61,14 @@ def add_entry():
     
     return redirect(url_for('notes'))
 
+
+@app.route('/edit', methods=['GET', 'PUT'])
+def edit_post():
+    print request.args.get('title')
+
+    return redirect(url_for('notes'))
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
@@ -74,6 +82,8 @@ def login():
             flash('You were logged in')
             return redirect(url_for('fill_enter'))
     return render_template('login.html', error=error)
+
+
 
 @app.route('/logout')
 def logout():
