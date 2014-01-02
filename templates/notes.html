@@ -2,30 +2,35 @@
 {% block content %}
   {% for entry in entries %}
 	<div class="well">
-	  	<div class="row">
+	  	<div class="row">	
 	    	<div class="col-md-12">
 			    <h3 clas="page-header">
 			    	{{ entry.title }}
 			    </h3>
-			    <small>{{entry.created_at.strftime('%H:%M %Y-%m-%d') }}</small>
-			    <hr>
 			</div>
 		</div>
 		<div class="row">
-			{%if entry.tags%}
-				{%for tag in entry.tags%}
-					<small>{{tag}}</small>
-				{%endfor%}
-			{% endif %}
-
+			<div class="col-md-12">
+				Posted by <span class="label label-danger"><a href="/">Kamilla</a></span> under
+				{%if entry.tags%}
+					{%for tag in entry.tags%}
+						<span class="label label-primary">{{tag}}</span>
+					{%endfor%}
+				{% endif %}
+			</div>
 		</div>
-
+		<hr>
 		<div class="row">
 			<div class="col-md-12">
 		    	{{ entry.body|safe }}
 		    </div>
 	    </div>
-
+	    <div class="row">
+	    	<div class="col-md-12">
+	    		<strong>{{entry.created_at.strftime('%B %e %Y')}}</strong>
+	    	</div>
 	    </div>
+
+	</div>
   {% endfor %}
 {%endblock%}
