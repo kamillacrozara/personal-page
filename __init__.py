@@ -11,7 +11,9 @@ db = MongoEngine(app)
 def register_blueprints(app):
     # Prevents circular imports
     from personalpage.views import posts
+    from personalpage.admin import admin
     app.register_blueprint(posts)
+    app.register_blueprint(admin)
 
 register_blueprints(app)
 
